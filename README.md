@@ -2,7 +2,7 @@
 Project for the Energy Management for IoT Course @ Politecnico di Torino (A.Y. 2022-23)
 
 ## Description
-Modeling of battery behavior during charging and discharging cycles. The model is developer using MATLAB/Simulink, then translated to simple C/C++ code to be simulated on PC, lastly it is ported to an MCU. The project is based on multiple [papers](Papers)
+Modeling of battery behavior during charging and discharging cycles. The model is developed using MATLAB/Simulink, then translated to simple C/C++ code to be simulated on PC, lastly it is ported to an MCU. The project is based on multiple [papers](Papers)
 
 ## Current State
 
