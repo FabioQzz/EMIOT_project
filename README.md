@@ -11,9 +11,9 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 - [x] SoC to Voc block
 - [x] Circuit parameters
 - [x] Circuit model (Simscape)
-- [ ] k1, k2, k3 parameters modeling with temperature
-- [ ] Potential variation due to temperature
-- [ ] Cycle counting algorithm (rainflow counting?)
+- [x] k1, k2, k3 parameters modeling with temperature
+- [x] Potential variation due to temperature
+- [ ] ~~Cycle counting algorithm (rainflow counting?)~~
 
 ### Part 2
 - [ ] Translation to C/C++
