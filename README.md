@@ -22,3 +22,20 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 ### Part 3
 
 - [ ] Porting to MCU
+
+## Issues
+
+### Discharge behavior at different temperatures
+
+![](./Docs/img/DischargeTime_DifferentTemperatures_PAPER.png)
+*Screenshot taken from the paper: [A Dynamic Lithium-ion Battery Model...](./Papers/A_dynamic_lithium-ion_battery_model_considering_the_effects_of_temperature_and_capacity_fading.pdf)*
+
+![](./Docs/img/DischargeTime_DifferentTemperatures.png)
+*Simulation results of our model. [Timeseries file](./Docs/SimulationResults.mat)*
+
+- Why do the discharging curves, especially the one at 45°C, not match the behavior seen in the first graph? 
+
+
+
+
+
