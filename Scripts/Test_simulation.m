@@ -16,7 +16,7 @@ init_cap        = table2timetable(table(input_data.Time, input_data.InitCap));
 init_soc        = table2timetable(table(input_data.Time, input_data.InitSoc));
 storage_time    = table2timetable(table(input_data.Time, input_data.StorTime));
 temperature     = table2timetable(table(input_data.Time, input_data.Temp));
-cycle_n         = table2timetable(table(input_data.Time, input_data.CycleN));
+init_cycle_n    = table2timetable(table(input_data.Time, input_data.InitCycleN));
 
 % Launch Simulink simulation
 modelName       = 'test_simulation';

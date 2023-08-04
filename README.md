@@ -13,7 +13,7 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 - [x] Circuit model (Simscape)
 - [x] k1, k2, k3 parameters modeling with temperature
 - [x] Potential variation due to temperature
-- [ ] ~~Cycle counting algorithm (rainflow counting?)~~
+- [x] Dynamic cycle counting
 
 ### Part 2
 - [ ] Translation to C/C++
@@ -23,7 +23,7 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 
 - [ ] Porting to MCU
 
-## Issues
+## Results
 
 ### Discharge behavior at different temperatures
 
@@ -35,6 +35,9 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 
 - Why do the discharging curves, especially the one at 45°C, not match the behavior seen in the first graph? 
 
+## Issues
+
+Nothing at the moment
 
 
 
