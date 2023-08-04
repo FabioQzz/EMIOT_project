@@ -3,73 +3,50 @@ close all
 
 %%% Simulation script
 
-% Generate time steps
-t = 0:0.1:100000;
-t = t';
+% Load input data from file
+input_data = readtable('input_data_2.txt');
+input_control = readtable('input_control.txt');
 
-% Control signals
-v_min           = [t,ones(size(t))*2.5];
-v_max           = [t,ones(size(t))*6];
+% Generate tables
+v_min           = table2timetable(table(input_control.Time, input_control.VMin));
+v_max           = table2timetable(table(input_control.Time, input_control.VMax));
 
-% Generate data signals
-current         = [t,ones(size(t))*(0.1)];      % [A]
-init_cap        = [t,ones(size(t))*2];        % [Ah]
-init_soc        = [t,ones(size(t))*1];        % [Ah]
-storage_time    = [t,ones(size(t))*1];        % [months]
-temperature     = [t,ones(size(t))*(45)];    % [°C]
-cycle_n         = [t,ones(size(t))*1];        % [n]
+current         = table2timetable(table(input_data.Time, input_data.Current));
+init_cap        = table2timetable(table(input_data.Time, input_data.InitCap));
+init_soc        = table2timetable(table(input_data.Time, input_data.InitSoc));
+storage_time    = table2timetable(table(input_data.Time, input_data.StorTime));
+temperature     = table2timetable(table(input_data.Time, input_data.Temp));
+cycle_n         = table2timetable(table(input_data.Time, input_data.CycleN));
 
 % Launch Simulink simulation
 modelName       = 'test_simulation';
 siminBaseline   = Simulink.SimulationInput(modelName);
-siminBaseline   = setModelParameter(siminBaseline,'StartTime','0','StopTime','80000');
+siminBaseline   = setModelParameter(siminBaseline,'StartTime','0','StopTime','800000');
 baseline        = sim(siminBaseline);
 
 %Log output
-out_v_batt  = baseline.v_batt;
-out_ccf     = baseline.ccf;
-out_v_batt.TimeInfo.Units = 'hours';
-out_ccf.TimeInfo.Units = 'hours';
+out_v_batt      = timeseries2timetable(baseline.v_batt);
+out_ccf         = timeseries2timetable(baseline.ccf);
+out_soc         = timeseries2timetable(baseline.soc);
 
 % Plot results
-plot(out_v_batt)
+plot(out_v_batt.Time, out_v_batt.Data)
 hold on;
-%plot(out_ccf)
+plot(out_soc.Time, out_soc.Data)
+hold on;
+legend('Battery Voltage', 'State of Charge');
+%plot(out_ccf.Time, out_ccf.Data)
 %hold on;
 
-%%% Second Simulation
-% Change input parameters
-%current         = [t,ones(size(t))*0.5];        % [A]
-%cycle_n         = [t,ones(size(t))*600];        % [n]
-temperature     = [t,ones(size(t))*23];       % [°C]
+%%% Second simulation
+% cycle_n         = table2timetable(table(input_data.Time, input_data.CycleN*10));
+% baseline        = sim(siminBaseline);
+% out_v_batt      = baseline.v_batt;
+% out_ccf         = baseline.ccf;
+% plot(out_ccf.Time, out_ccf.Data)
+% hold on;
 
-% Launch second simulation
-baseline        = sim(siminBaseline);
+[c,hist,edges,rmm,idx] = rainflow(out_v_batt);
 
-%Log output
-out_v_batt  = baseline.v_batt;
-out_v_batt.TimeInfo.Units = 'hours';
+T = array2table(c,'VariableNames',{'Count','Range','Mean','Start','End'})
 
-% Plot results
-plot(out_v_batt)
-hold on;
-
-%%% Third simulation
-%current         = [t,ones(size(t))*1];        % [A]
-temperature     = [t,ones(size(t))*(0)];       % [°C]
-
-baseline        = sim(siminBaseline);
-out_v_batt  = baseline.v_batt;
-out_v_batt.TimeInfo.Units = 'hours';
-plot(out_v_batt)
-hold on;
-
-%%% Fourth simulation
-%current         = [t,ones(size(t))*0.5];        % [A]
-temperature     = [t,ones(size(t))*(-20)];       % [°C]
-
-baseline        = sim(siminBaseline);
-out_v_batt      = baseline.v_batt;
-out_v_batt.TimeInfo.Units = 'hours';
-plot(out_v_batt)
-hold on;
