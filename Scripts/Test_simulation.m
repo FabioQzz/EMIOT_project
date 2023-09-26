@@ -19,7 +19,8 @@ temperature     = table2timetable(table(input_data.Time, input_data.Temp));
 init_cycle_n    = table2timetable(table(input_data.Time, input_data.InitCycleN));
 
 % Launch Simulink simulation
-modelName       = 'test_simulation';
+%modelName       = 'test_simulation';
+modelName       = 'test_simulation_DISCR';
 siminBaseline   = Simulink.SimulationInput(modelName);
 siminBaseline   = setModelParameter(siminBaseline,'StartTime','0','StopTime','800000');
 baseline        = sim(siminBaseline);
