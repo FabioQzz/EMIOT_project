@@ -20,5 +20,5 @@ SC_MODULE(Testbench){
 
     void generator_thread(void);
     void checker_method(void);
-    void simulation_clock(int clock_period_MS);
+    void simulation_clock(float clock_period_MS);
 };

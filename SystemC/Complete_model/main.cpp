@@ -22,7 +22,7 @@ int sc_main(int argc, char * argv[]) {
     TB_inst.sim_clock(sim_clock_s);
     TB_inst.voc(voc_s);
 
-    sc_start(10, SC_MS);
+    sc_start(3600, SC_SEC);
 
 	return 0;
 }

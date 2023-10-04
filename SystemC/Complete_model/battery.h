@@ -12,7 +12,7 @@ SC_MODULE(Battery){
     // Signals ending in '_1' hold the value from the previous clock cycle
     // They are used for integration
     sc_signal<float> c_rate, c_rate_1;
-    sc_signal<float> soc;
+    sc_signal<float> soc, soc_1;
 
     double sim_clock_period_S;
     
@@ -25,7 +25,7 @@ SC_MODULE(Battery){
         sensitive << sim_clock.pos();
 
         SC_METHOD(soc_to_voc_method);
-        sensitive << current << battery_cap;
+        sensitive << soc;
 
     }
 
@@ -35,8 +35,9 @@ SC_MODULE(Battery){
 
     // Function to extract clock period from signal sim_clock
     void start_of_simulation() {
-        sc_clock *channel = dynamic_cast<sc_clock *>(sim_clock.get_interface());
-        sim_clock_period_S = channel->period().to_seconds();
+        //sc_clock *channel = dynamic_cast<sc_clock *>(sim_clock.get_interface());
+        //sim_clock_period_S = channel->period().to_seconds();
+        sim_clock_period_S = 0.001;
     };
 
 };
