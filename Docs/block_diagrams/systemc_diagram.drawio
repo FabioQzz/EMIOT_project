@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-04T13:41:45.493Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="vcWUP2wGNZ4HmbpQ043G" version="22.0.2" type="device">
+<mxfile host="app.diagrams.net" modified="2023-10-04T16:04:22.199Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="OU75G4vgVzDH-BxfFQPP" version="22.0.2" type="device">
   <diagram name="Pagina-1" id="JixKTYv2JZQ_Qk85dHQe">
-    <mxGraphModel dx="683" dy="372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="574" dy="313" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -55,7 +55,7 @@
         <mxCell id="UVs8akoaALRGwhurHnQT-19" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Integrator functions (SC)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="250" y="150" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="UVs8akoaALRGwhurHnQT-20" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Circuit model (???)&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=8;fontColor=#FF3333;" vertex="1" parent="1">
+        <mxCell id="UVs8akoaALRGwhurHnQT-20" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Circuit model (???)&lt;br&gt;(Zeq_circuit)&lt;br&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=#d5e8d4;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=8;fontColor=#FF3333;" vertex="1" parent="1">
           <mxGeometry x="250" y="180" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="UVs8akoaALRGwhurHnQT-22" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#d5e8d4;strokeColor=none;" vertex="1" parent="1">
