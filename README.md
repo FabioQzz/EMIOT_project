@@ -16,8 +16,13 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 - [x] Dynamic cycle counting
 
 ### Part 2
-- [ ] Translation to C/C++
-- [ ] Simulation
+- [ ] Model translation to C/C++ 
+  - [ ] Circuit model (Zeq)
+- [ ] SystemC Testbench
+  - [ ] Input data generation from file
+  - [ ] Parametric simulation clock
+  - [ ] Saving siulation results to file (.csv)
+- [ ] Simulation with SystemC
 
 ### Part 3
 
@@ -33,7 +38,6 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 ![](./Docs/img/DischargeTime_DifferentTemperatures.png)
 *Simulation results of our model. [Timeseries file](./Docs/files/DischargeDifferentTemperatures.mat)*
 
-- Why do the discharging curves, especially the one at 45°C, not match the behavior seen in the first graph? 
 
 ## Issues
 
