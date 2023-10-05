@@ -4,7 +4,7 @@ close all
 %%% Simulation script
 
 % Load input data from file
-input_data = readtable('input_data_2.txt');
+input_data = readtable('input_data_3.txt');
 input_control = readtable('input_control.txt');
 
 % Generate tables
