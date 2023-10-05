@@ -4,7 +4,7 @@ using std::endl;
 
 SC_MODULE(Battery){
 
-    float CLOCK_PERIOD_MS = 1;
+    const float CLOCK_PERIOD_MS = 1;        // Simulation clock period in milliseconds
 
     sc_in<float> battery_cap;
     sc_in<float> current;
