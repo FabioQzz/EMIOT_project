@@ -7,18 +7,17 @@ using std::endl;
 SC_MODULE(Testbench){
     sc_in<float> voc;
 
-    sc_out<float> battery_cap;
-    sc_out<float> current;
-    sc_out<bool> sim_clock;
-    
+    sc_out<float> battery_cap;      // Battery capacity [Ah]
+    sc_out<float> current;          // Current [A]
 
     SC_CTOR(Testbench){
         SC_THREAD(generator_thread);
-        SC_METHOD(checker_method);
-        sensitive << voc;
+        SC_THREAD(checker_thread);
+        //SC_METHOD(checker_method);
+        //sensitive << voc;
     }
 
-    void generator_thread(void);
     void checker_method(void);
-    void simulation_clock(float clock_period_MS);
+    void checker_thread(void);
+    void generator_thread(void);
 };
