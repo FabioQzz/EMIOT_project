@@ -16,27 +16,28 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 - [x] Dynamic cycle counting
 
 ### Part 2
+#### Block Diagram for Part 2
+<img src="./Docs/block_diagrams/systemc_diagram.png"  width="50%" height="30%">
+
+*Block diagram of SystemC model*
+
 - [ ] Model translation to C/C++ 
+  - [x] Parametric simulation clock
+  - [ ] Simulink blocks
   - [ ] Circuit model (Zeq)
 - [ ] SystemC Testbench
   - [ ] Input data generation from file
-  - [ ] Parametric simulation clock
   - [ ] Saving siulation results to file (.csv)
 - [ ] Simulation with SystemC
+
+
 
 ### Part 3
 
 - [ ] Porting to MCU
 
 ## Results
-
-### Discharge behavior at different temperatures
-
-![](./Docs/img/DischargeTime_DifferentTemperatures_PAPER.png)
-*Screenshot taken from the paper: [A Dynamic Lithium-ion Battery Model...](./Papers/A_dynamic_lithium-ion_battery_model_considering_the_effects_of_temperature_and_capacity_fading.pdf)*
-
-![](./Docs/img/DischargeTime_DifferentTemperatures.png)
-*Simulation results of our model. [Timeseries file](./Docs/files/DischargeDifferentTemperatures.mat)*
+Some relevant results can be seen in [results.md](./Docs/results.md)
 
 
 ## Issues
