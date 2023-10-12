@@ -1,0 +1,1 @@
+float Zeq_circuit(float period, float R_series, float R_transient_S, float C_transient_S, float R_transient_L, float C_transient_L)
