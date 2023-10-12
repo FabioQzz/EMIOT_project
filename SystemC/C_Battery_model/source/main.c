@@ -13,7 +13,7 @@ void main(){
     int t=40, N=10;
 
    //outputs
-    float V, CCF;
+    float V, *CCF;
     int SoC;
 
    //internal vars
@@ -23,7 +23,7 @@ void main(){
      printf("This is a battery model written in C \n");
 
    //Computing CCF, R_cycle and delta_E (these last two are passed and returned by reference)
-    CCF = CapacityCorrectionFactor(N,t,T,&R_cycle,&delta_E);
+    CapacityCorrectionFactor(N,t,T,&R_cycle,&delta_E,&CCF);
 
     printf("CCF = %f\n R Cycle = %f\n Potential Correction Factor = %f\n", CCF, R_cycle, delta_E);
    

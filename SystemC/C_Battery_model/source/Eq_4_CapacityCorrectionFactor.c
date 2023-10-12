@@ -6,7 +6,7 @@ float StorageLoss(int t, float T);
 void K_coefficients(float T, float *k1, float *k2, float *k3);
 float Cycle_Losses(int N, float k1, float k2);
 
-float CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delta_E){
+void CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delta_E, float *CCF){
     float CCF=5.5; 
     float storage_loss;
     float k1, k2, k3;
@@ -24,7 +24,7 @@ float CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *del
     CycleLosses = Cycle_Losses(N,k1,k2);
 
     //First output, passed by value
-    CCF = 1 - (storage_loss + CycleLosses);
+    *CCF = 1 - (storage_loss + CycleLosses);
 
     //Second output, passed by reference
     *R_cycle = k3 * (float)sqrt(N); 
@@ -32,7 +32,6 @@ float CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *del
     //Third output, passed by reference
     *delta_E = (T * 0.0102) - 0.2118 ;
 
-    return CCF;
 }
 
 
