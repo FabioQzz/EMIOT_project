@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-void RC_Components(int SOC, float *R_series, float *R_transient_S,float *C_transient_S, float *R_transient_L, float *C_transient_L){
+void RC_Components(float SOC, float *R_series, float *R_transient_S,float *C_transient_S, float *R_transient_L, float *C_transient_L){
 
 *R_series = 0.1562 * exp(-24.37*SOC) + 0.07446 ;
 *R_transient_S = 0.3208 * exp(-29.14*SOC) + 0.04669;
