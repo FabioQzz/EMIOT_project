@@ -21,10 +21,10 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 
 *Block diagram of SystemC model*
 
-- [ ] Model translation to C/C++ 
+- [x] Model translation to C/C++ 
   - [x] Parametric simulation clock
-  - [ ] Simulink blocks
-  - [ ] Circuit model (Zeq)
+  - [x] Simulink blocks
+  - [x] Circuit model (Zeq)
 - [ ] SystemC Testbench
   - [ ] Input data generation from file
   - [ ] Saving siulation results to file (.csv)
@@ -42,7 +42,11 @@ Some relevant results can be seen in [results.md](./Docs/results.md)
 
 ## Issues
 
-Nothing at the moment
+- [ ] Inconsistent variable types between model and functions
+- [ ] Model files of type .cpp instead of .c (compilation issues)
+- [ ] General naming convention for variables and functions
+  - Proposed snake_case for variable and CamelCase for functions
+- [ ] General buggyness 
 
 
 
