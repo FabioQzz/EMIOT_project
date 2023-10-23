@@ -1,1 +1,1 @@
-float SOC_2_VOC(float SOC);
+float SocToVoc(float soc);

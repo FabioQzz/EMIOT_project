@@ -5,14 +5,18 @@ using std::endl;
 SC_MODULE(Battery){
 
     const float CLOCK_PERIOD_MS = 1;        // Simulation clock period in milliseconds
-    const float CHECK_PERIOD_MS = 10;       // Output checking period in milliseconds
+    const float CHECK_PERIOD_MS = 1;        // Output checking period in milliseconds
 
+    // Input variables
+    float clock_period      = CLOCK_PERIOD_MS / 1000;
     float current           = 0;
     float init_cap          = 0;
     float storage_time      = 0;
     float temperature       = 0;
     float init_cycle_n      = 0;
     float init_soc          = 0;
+
+    // Output variables
     float v_batt            = 0;
     float ccf               = 0;
     float soc               = 0;

@@ -8,7 +8,7 @@ void integration_SoC(float c_r, float Soc_init, float CCF, float period,float *S
     static float c_r_1=0;
     
     // Right trapezoid formula, linear approximation
-    *SoC =  *SoC + ((c_r + c_r_1) * period/1000 / 2);
+    *SoC =  *SoC + ((c_r + c_r_1) * period / 2);
 
     //c_r is the current value of C rate, just computed
     //c_r_1 contains the value of c_rate computed in the previous cycle

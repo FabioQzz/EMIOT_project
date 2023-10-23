@@ -12,7 +12,7 @@ void CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delt
     float k1, k2, k3;
     float CycleLosses;
 
-    printf("Computing the CCF, R_cycle and delta_E \n");
+    //printf("Computing the CCF, R_cycle and delta_E \n");
 
     //Eq6_StorageLoss
     storage_loss = StorageLoss(t,T);

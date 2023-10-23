@@ -3,8 +3,13 @@
 
 void Battery::checker_thread(void){
     while(true){
-        cout << "Time " << sc_time_stamp() << "  current: " << current << endl;
-        wait(CHECK_PERIOD_MS/2,SC_MS);
+        cout << "Time \t\t" << sc_time_stamp() << endl;
+        cout << "Current: \t" << current << endl;
+        cout << "V Battery: \t" <<  v_batt << endl;
+        cout << "CCF: \t\t" <<  ccf << endl;
+        cout << "SoC: \t\t" <<  soc << endl;
+        cout << endl;
+        wait(CHECK_PERIOD_MS,SC_MS);
     }
 }
 
@@ -28,7 +33,8 @@ void Battery::sim_battery_clock(void){
 void Battery::sim_battery_model(void){
     while(true){
         //cout << "Current var: " << current << endl;
-        battery_model(  current,
+        battery_model(  clock_period,
+                        current,
                         init_cap,
                         storage_time,
                         temperature,
