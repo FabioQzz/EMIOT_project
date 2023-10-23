@@ -1,9 +1,9 @@
 EXTRACFLAGS = -DDEBUG_SYSTEMC
-EXTRA_LIBS = 
-TEST_LIBS = src
+EXTRA_LIBS =
 MODULE = run
-SRCS = $(wildcard *.cpp)
+SRCS = $(wildcard *.cpp) $(wildcard src/*.c)
 
 OBJS = $(SRCS:.cpp=.o)
+PFILES = $(SRCS:.cpp=.P)
 
 include ../Makefile.defs

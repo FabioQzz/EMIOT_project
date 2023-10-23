@@ -1,5 +1,5 @@
 #include "battery.h"
-#include "battery_model.h"
+#include "src/battery_model.h"
 
 void Battery::checker_thread(void){
     while(true){
@@ -9,10 +9,10 @@ void Battery::checker_thread(void){
 }
 
 void Battery::input_generation(void){
-    current = 0;
-    battery_cap = 1;
+    current     = 0;
+    init_cap    = 1;
     wait(5, SC_MS);
-    current = 1;
+    current     = 1;
     wait(100, SC_MS);
 }
 
@@ -28,6 +28,15 @@ void Battery::sim_battery_clock(void){
 void Battery::sim_battery_model(void){
     while(true){
         //cout << "Current var: " << current << endl;
+        battery_model(  current,
+                        init_cap,
+                        storage_time,
+                        temperature,
+                        init_cycle_n,
+                        init_soc,
+                        &v_batt,
+                        &ccf,
+                        &soc);
         wait();
     }
 }

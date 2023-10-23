@@ -4,6 +4,6 @@ void battery_model( float current,
                     float temperature,
                     float init_cycle_n,
                     float init_soc,
-                    float *v_batt,
-                    float *ccf,
-                    float *soc);
+                    float *out_v_batt,
+                    float *out_ccf,
+                    float *out_soc);

@@ -7,8 +7,15 @@ SC_MODULE(Battery){
     const float CLOCK_PERIOD_MS = 1;        // Simulation clock period in milliseconds
     const float CHECK_PERIOD_MS = 10;       // Output checking period in milliseconds
 
-    float current = 0;
-    float battery_cap = 1;
+    float current           = 0;
+    float init_cap          = 0;
+    float storage_time      = 0;
+    float temperature       = 0;
+    float init_cycle_n      = 0;
+    float init_soc          = 0;
+    float v_batt            = 0;
+    float ccf               = 0;
+    float soc               = 0;
 
     sc_signal<bool> battery_clock;
   

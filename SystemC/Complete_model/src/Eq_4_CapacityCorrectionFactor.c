@@ -7,7 +7,7 @@ void K_coefficients(float T, float *k1, float *k2, float *k3);
 float Cycle_Losses(int N, float k1, float k2);
 
 void CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delta_E, float *CCF){
-    float CCF=5.5; 
+    //float CCF=5.5; 
     float storage_loss;
     float k1, k2, k3;
     float CycleLosses;
