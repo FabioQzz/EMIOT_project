@@ -8,7 +8,7 @@
 #include "integration_N.h"
 #include "Eq_Zeq_circuit.h"
 
-void battery_model( float current, float init_cap, float storage_time, float temperature, float init_cycle_n, float init_soc, float *out_v_batt, float *out_ccf, float *out_soc){
+void battery_model(float current, float init_cap, float storage_time, float temperature, float init_cycle_n, float init_soc, float *out_v_batt, float *out_ccf, float *out_soc){
 
     // Internal variables
     static float cycle_n_var = 0;           // Variation in cycle number
