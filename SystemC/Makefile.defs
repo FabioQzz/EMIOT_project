@@ -10,9 +10,9 @@ CC     = g++
 OPT    = -O0
 DEBUG  = -g
 
-SYSDIR = -I $(SYSTEMC)/include
+SYSDIR = -I $(SYSTEMC)/include -I$(TEST_LIBS)
           
-INCDIR = -I. -I.. $(SYSDIR)
+INCDIR = -I. -I.. $(SYSDIR) 
 LIBDIR = -L. -L.. -L$(SYSTEMC)/lib-$(TARGET_ARCH)
 
 ## Build with maximum gcc warning level

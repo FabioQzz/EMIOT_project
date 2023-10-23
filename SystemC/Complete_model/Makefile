@@ -1,5 +1,6 @@
 EXTRACFLAGS = -DDEBUG_SYSTEMC
-EXTRA_LIBS =
+EXTRA_LIBS = 
+TEST_LIBS = src
 MODULE = run
 SRCS = $(wildcard *.cpp)
 
