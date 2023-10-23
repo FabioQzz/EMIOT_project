@@ -40,4 +40,7 @@ $(EXE): $(OBJS) $(SYSTEMC)/lib-$(TARGET_ARCH)/libsystemc.a
 clean:
 	-rm -f $(OBJS) $(PFILES) *~ $(EXE) *.vcd *.wif *.isdb *.dmp *.P *.log
 
+tidy:
+	-rm -f $(OBJS) $(PFILES) *~ *.vcd *.wif *.isdb *.dmp *.P *.log
+
 -include $(SRCS:.cpp=.P)
