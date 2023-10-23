@@ -1,5 +1,5 @@
 #include "battery.h"
-// #include "battery_model.h"
+#include "battery_model.h"
 
 void Battery::checker_thread(void){
     while(true){
