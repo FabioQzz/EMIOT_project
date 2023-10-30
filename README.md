@@ -16,19 +16,40 @@ Modeling of battery behavior during charging and discharging cycles. The model i
 - [x] Dynamic cycle counting
 
 ### Part 2
-#### Block Diagram for Part 2
-<img src="./Docs/block_diagrams/systemc_diagram.png"  width="50%" height="30%">
 
-*Block diagram of SystemC model*
 
 - [x] Model translation to C/C++ 
   - [x] Parametric simulation clock
   - [x] Simulink blocks
   - [x] Circuit model (Zeq)
-- [ ] SystemC Testbench
+- [ ] Simulation in C
   - [ ] Input data generation from file
   - [ ] Saving siulation results to file (.csv)
-- [ ] Simulation with SystemC
+  - [x] Printing results on console
+
+Example:
+Example of the console output of a simulation run
+
+```
+**********
+TIME:           0.000 s
+Current:        0.000000 A
+V Batt:         3.959059 V
+CCF:            98.73 %
+SoC:            75.00 %
+**********
+TIME:           600.000 s
+Current:        1.000000 A
+V Batt:         3.707443 V
+CCF:            98.73 %
+SoC:            58.03 %
+**********
+TIME:           1800.000 s
+Current:        1.000000 A
+V Batt:         3.608337 V
+CCF:            98.72 %
+SoC:            25.42 %
+```
 
 
 
@@ -42,9 +63,9 @@ Some relevant results can be seen in [results.md](./Docs/results.md)
 
 ## Issues
 
-- [ ] Inconsistent variable types between model and functions
-- [ ] Model files of type .cpp instead of .c (compilation issues)
-- [ ] General naming convention for variables and functions
+- [x] ~~Inconsistent variable types between model and functions~~
+- [x] ~~Model files of type .cpp instead of .c (compilation issues)~~
+- [x] ~~General naming convention for variables and functions~~
   - Proposed snake_case for variable and CamelCase for functions
 - [ ] General buggyness 
 

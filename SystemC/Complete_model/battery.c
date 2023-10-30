@@ -88,11 +88,11 @@ void output_check(  float clock_time,
                     float soc)
 {
     printf("**********\n");
-    printf("TIME: \t\t%f ms\n", clock_time);
+    printf("TIME: \t\t%.3f s\n", clock_time/1000);
     printf("Current: \t%.6f A\n", current);
     printf("V Batt: \t%.6f V\n", v_batt);
-    printf("CCF: \t\t%.6f \n", ccf);
-    printf("SoC: \t\t%.6f V\n", soc);
+    printf("CCF: \t\t%.2f %%\n", ccf*100);
+    printf("SoC: \t\t%.2f %%\n", soc*100);
     printf("\n");
     return;
 }
