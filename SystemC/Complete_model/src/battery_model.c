@@ -41,17 +41,17 @@ void battery_model( float clock_period,
     
     c_rate = CRate(current, cap_init, ccf);
 
-    integration_SoC(c_rate, soc_init, ccf, clock_period, &soc_var);
+    integrationSoC(c_rate, soc_init, ccf, clock_period, &soc_var);
 
     soc_tot = soc_init - soc_var;
 
     v_oc = SocToVoc(soc_tot);
 
-    cycle_n_var = integration_N(c_rate, clock_period);
+    cycle_n_var = integrationN(c_rate, clock_period);
 
-    RC_Components(soc_tot, &R_series, &R_transient_S, &C_transient_S, &R_transient_L, &C_transient_L);
+    RcComponents(soc_tot, &R_series, &R_transient_S, &C_transient_S, &R_transient_L, &C_transient_L);
 
-    v_zeq = Zeq_circuit(current, clock_period, R_series, R_cycle, R_transient_S, C_transient_S, R_transient_L, C_transient_L);
+    v_zeq = ZeqCircuit(current, clock_period, R_series, R_cycle, R_transient_S, C_transient_S, R_transient_L, C_transient_L);
 
     *out_v_batt = v_oc - v_zeq + delta_E;
     *out_ccf = ccf;

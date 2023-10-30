@@ -1,6 +1,6 @@
 
 
-float integration_N(float c_r, float period){
+float integrationN(float c_r, float period){
     static float N_update=0;
     static float c_r_1=0;
         

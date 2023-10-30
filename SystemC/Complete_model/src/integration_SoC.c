@@ -4,7 +4,7 @@
 
 
 
-void integration_SoC(float c_r, float Soc_init, float CCF, float period,float *SoC){
+void integrationSoC(float c_r, float Soc_init, float CCF, float period,float *SoC){
     static float c_r_1=0;
     
     // Right trapezoid formula, linear approximation
