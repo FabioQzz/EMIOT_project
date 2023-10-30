@@ -1,6 +1,6 @@
 #include <math.h>
 
-float Zeq_circuit(float current, float period, float R_series, float R_cycle, float R_transient_S, float C_transient_S, float R_transient_L, float C_transient_L){
+float ZeqCircuit(float current, float period, float R_series, float R_cycle, float R_transient_S, float C_transient_S, float R_transient_L, float C_transient_L){
     float V_R_series, V_R_cycle;
     float V_tot;
     static float V_tr_S = 0; 
