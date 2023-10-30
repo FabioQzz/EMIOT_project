@@ -1,0 +1,10 @@
+void battery_model( float clock_period,
+                    float current,
+                    float cap_init,
+                    float storage_time,
+                    float temperature,
+                    float cycle_n_init,
+                    float soc_init,
+                    float *out_v_batt,
+                    float *out_ccf,
+                    float *out_soc);

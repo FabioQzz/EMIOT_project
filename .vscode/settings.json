@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "chrono": "cpp",
+        "ostream": "cpp",
+        "battery_model.h": "c"
+    }
+}

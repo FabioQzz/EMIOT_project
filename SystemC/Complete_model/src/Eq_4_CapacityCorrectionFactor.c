@@ -2,17 +2,22 @@
 #include <stdlib.h>
 #include <math.h>
 
-float StorageLoss(int t, float T);
+float StorageLoss(float t, float T);
 void K_coefficients(float T, float *k1, float *k2, float *k3);
-float Cycle_Losses(int N, float k1, float k2);
+float Cycle_Losses(float N, float k1, float k2);
 
-void CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delta_E, float *CCF){
+void CapacityCorrectionFactor(float N, float t, float T, float *R_cycle, float *delta_E, float *CCF){
     //float CCF=5.5; 
-    float storage_loss;
-    float k1, k2, k3;
-    float CycleLosses;
+    float storage_loss = 0;
+    float k1, k2, k3 = 0;
+    float CycleLosses = 0;
 
-    //printf("Computing the CCF, R_cycle and delta_E \n");
+    //DEBUG
+    /* printf("---FUNCTION CCF---\n");
+    printf("storage loss: \t%.6f\n", storage_loss);
+    printf("cycle loss: \t%.6f\n", CycleLosses);
+    printf("temperature T: \t%.6f\n", T);
+    printf("time months t: \t%.6f\n", t); */
 
     //Eq6_StorageLoss
     storage_loss = StorageLoss(t,T);
@@ -32,16 +37,26 @@ void CapacityCorrectionFactor(int N, int t, float T, float *R_cycle, float *delt
     //Third output, passed by reference
     *delta_E = (T * 0.0102) - 0.2118 ;
 
+
 }
 
 
 //Eq6_StorageLoss
-float StorageLoss(int t, float T){
+float StorageLoss(float t, float T){
     float St_Loss;
     float T_kelvin;
 
     T_kelvin = T + 273.15 ; 
     St_Loss =  1.544e7 * exp(-40498 / (8.3143 * T_kelvin)) * t;
+
+    //DEBUG
+    /* printf("--- FUNCTION StorageLoss ---\n");
+    printf("T_kelvin: \t%.6f\n", T_kelvin);
+    printf("debug1: \t%.6f\n", (8.3143 * T_kelvin));
+    printf("debug2: \t%.6f\n", (-40498 / (8.3143 * T_kelvin)));
+    printf("debug3: \t%.6f\n", exp(-40498 / (8.3143 * T_kelvin)) * t);
+    printf("debug4: \t%.6f\n", 1.544e7 * exp(-40498 / (8.3143 * T_kelvin)) * t); */
+
     return St_Loss * 0.01; //returning a %
 }
 
@@ -55,7 +70,7 @@ void K_coefficients(float T, float *k1, float *k2, float *k3){
 
 
 //Eq7_CyclesLoss
-float Cycle_Losses(int N, float k1, float k2){
+float Cycle_Losses(float N, float k1, float k2){
     float Cycle_loss;
     Cycle_loss = ( N*N*0.5*k1) + (N * k2);
     return Cycle_loss;

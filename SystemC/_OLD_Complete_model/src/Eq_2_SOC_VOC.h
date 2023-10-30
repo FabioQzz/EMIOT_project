@@ -1,0 +1,1 @@
+float SocToVoc(float soc);

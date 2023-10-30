@@ -1,0 +1,8 @@
+src/battery_model.o: src/battery_model.cpp \
+ src/Eq_4_CapacityCorrectionFactor.h src/Eq_2_SOC_VOC.h \
+ src/Eq_8_12_RC_Components.h src/c_rate.h src/integration_SoC.h \
+ src/integration_N.h src/Eq_Zeq_circuit.h
+src/battery_model.cpp :
+ src/Eq_4_CapacityCorrectionFactor.h src/Eq_2_SOC_VOC.h :
+ src/Eq_8_12_RC_Components.h src/c_rate.h src/integration_SoC.h :
+ src/integration_N.h src/Eq_Zeq_circuit.h :
