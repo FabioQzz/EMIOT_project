@@ -7,7 +7,8 @@ void input_generation(  FILE *file_ptr,
                         float *init_cycle_n,
                         float *init_soc);
 
-void output_check(  float clock_time, 
+void output_check(  FILE *file_ptr,
+                    float clock_time, 
                     float current, 
                     float v_batt, 
                     float ccf, 

@@ -7,9 +7,10 @@
 int main(){
 
     FILE *in_file = fopen("input.csv", "r");
+    FILE *out_file = fopen("results.csv", "w");
 
-    if(in_file == NULL){
-        printf("Failed to open the input file. \n");
+    if(in_file == NULL || out_file == NULL){
+        printf("Failed to open the files. \n");
     }
 
     // SIMULATION PARAMETERS
@@ -61,7 +62,8 @@ int main(){
 
         // Check results
         if((int)clock_time % (int)CHECK_PERIOD_MS == 0){
-        output_check(       clock_time, 
+        output_check(       out_file,    
+                            clock_time, 
                             current, 
                             v_batt, 
                             ccf, 
@@ -133,7 +135,8 @@ void input_generation(  FILE *file_ptr,
             
 }
 
-void output_check(  float clock_time, 
+void output_check(  FILE *file_ptr,
+                    float clock_time, 
                     float current, 
                     float v_batt, 
                     float ccf, 
