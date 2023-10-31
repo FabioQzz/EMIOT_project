@@ -22,9 +22,9 @@ Modeling of battery behavior during charging and discharging cycles. The model i
   - [x] Parametric simulation clock
   - [x] Simulink blocks
   - [x] Circuit model (Zeq)
-- [ ] Simulation in C
-  - [ ] Input data generation from file
-  - [ ] Saving siulation results to file (.csv)
+- [x] Simulation in C
+  - [x] Input data generation from file
+  - [x] Saving siulation results to file (.csv)
   - [x] Printing results on console
 
 Example:
