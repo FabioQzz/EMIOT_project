@@ -18,8 +18,8 @@ int main(){
     // SIMULATION PARAMETERS
     const float BASE_PERIOD_MS = 1;             // Minimum period, calls main lool. ALL PERIODS MUST BE DIVISIBLE BY THIS AMOUNT
     //const float SIM_PERIOD_MS = 1;            // Simulation clock period in milliseconds
-    const float CHECK_PERIOD_MS = 60000;         // Output checking period in milliseconds
-    const float MAX_SIM_TIME_MS = 30 * 60 * 1000;    // Maximum simulation time
+    const float CHECK_PERIOD_MS = 1;         // Output checking period in milliseconds
+    const float MAX_SIM_TIME_MS = 15;          // Maximum simulation time
 
     // Input variables
     float clock_period      = BASE_PERIOD_MS / 1000;
@@ -94,48 +94,64 @@ void input_generation(  FILE *file_ptr,
         *init_cap    = 1;
     }*/
     char line[1024];
-   
+    static float clock_time_tmp, current_tmp, init_cap_tmp, storage_time_tmp, temperature_tmp, init_cycle_n_tmp, init_soc_tmp;
+    static int flag = 0; // flag set to 1 when we have already read a row but no used it    
 
-    while(fgets(line, sizeof(line), file_ptr)!= NULL){
-        char *token = strtok(line, ","); //to divide the line in parameters
-        printf("**********\n");
-        if(token != NULL){
-            clock_time = atof(token);
-            token = strtok(NULL,",");
+    if(flag==0){
+        while(fgets(line, sizeof(line), file_ptr)!= NULL){
+            char *token = strtok(line, ","); //to divide the line in parameters
+            printf("**********\n");
             if(token != NULL){
-                *current = atof(token);
+                clock_time_tmp = atof(token);
                 token = strtok(NULL,",");
-                if (token != NULL){
-                    *init_cap = atof(token);
+                if(token != NULL){
+                    current_tmp = atof(token);
                     token = strtok(NULL,",");
                     if (token != NULL){
-                        *storage_time = atof(token);
+                        init_cap_tmp = atof(token);
                         token = strtok(NULL,",");
                         if (token != NULL){
-                            *temperature = atof(token);
+                            storage_time_tmp = atof(token);
                             token = strtok(NULL,",");
                             if (token != NULL){
-                                *init_cycle_n = atof(token);
+                                temperature_tmp = atof(token);
                                 token = strtok(NULL,",");
                                 if (token != NULL){
-                                    *init_soc = atof(token);
-                                    token = strtok(NULL,","); 
-                                    printf("Current:%f \n", *current); 
-                                    printf("Init_cap:%f \n", *init_cap);
-                                    printf("Storage_time:%f\n", *storage_time);
-                                    printf("Temperature: %f\n", *temperature);
-                                    printf("Init_cycle_n: %f\n", *init_cycle_n);
-                                    printf("Init_soc: %f\n\n", *init_soc);
-                                    return;
+                                    init_cycle_n_tmp = atof(token);
+                                    token = strtok(NULL,",");
+                                    if (token != NULL){
+                                        init_soc_tmp = atof(token);
+                                        token = strtok(NULL,","); 
+                                        printf("Current:%f \n", *current); 
+                                        printf("Init_cap:%f \n", *init_cap);
+                                        printf("Storage_time:%f\n", *storage_time);
+                                        printf("Temperature: %f\n", *temperature);
+                                        printf("Init_cycle_n: %f\n", *init_cycle_n);
+                                        printf("Init_soc: %f\n\n", *init_soc);
+                                        break;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            
-         }    
+                
+            }    
+        }
+        }
     }
-    }  
+    if(clock_time_tmp == clock_time){
+        *current = current_tmp;
+        *init_cap = init_cap_tmp;
+        *storage_time = storage_time_tmp;
+        *temperature = temperature_tmp;
+        *init_cap = init_cap_tmp;
+        *init_cycle_n = init_cycle_n_tmp;
+        *init_soc = init_soc_tmp;
+        flag = 0;
+    }else if(clock_time_tmp > clock_time){
+        flag = 1;
+    }
+
     return;
             
 }
