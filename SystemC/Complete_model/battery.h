@@ -1,4 +1,5 @@
-void input_generation(  float clock_time,
+void input_generation(  FILE *file_ptr,
+                        float clock_time,
                         float *current,
                         float *init_cap,
                         float *storage_time,
