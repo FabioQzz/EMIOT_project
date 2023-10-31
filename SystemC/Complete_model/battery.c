@@ -9,6 +9,8 @@ int main(){
     FILE *in_file = fopen("input.csv", "r");
     FILE *out_file = fopen("results.csv", "w");
 
+    fprintf(out_file,"Clock_Time, Current, V_battery, CCF, SoC\n");
+
     if(in_file == NULL || out_file == NULL){
         printf("Failed to open the files. \n");
     }
@@ -98,39 +100,42 @@ void input_generation(  FILE *file_ptr,
         char *token = strtok(line, ","); //to divide the line in parameters
         printf("**********\n");
         if(token != NULL){
-            *current = atof(token);
+            clock_time = atof(token);
             token = strtok(NULL,",");
-            if (token != NULL){
-                *init_cap = atof(token);
+            if(token != NULL){
+                *current = atof(token);
                 token = strtok(NULL,",");
                 if (token != NULL){
-                    *storage_time = atof(token);
+                    *init_cap = atof(token);
                     token = strtok(NULL,",");
                     if (token != NULL){
-                        *temperature = atof(token);
+                        *storage_time = atof(token);
                         token = strtok(NULL,",");
                         if (token != NULL){
-                            *init_cycle_n = atof(token);
+                            *temperature = atof(token);
                             token = strtok(NULL,",");
                             if (token != NULL){
-                                *init_soc = atof(token);
-                                token = strtok(NULL,","); 
-                                printf("Current:%f \n", *current); 
-                                printf("Init_cap:%f \n", *init_cap);
-                                printf("Storage_time:%f\n", *storage_time);
-                                printf("Temperature: %f\n", *temperature);
-                                printf("Init_cycle_n: %f\n", *init_cycle_n);
-                                printf("Init_soc: %f\n\n", *init_soc);
-                                return;
+                                *init_cycle_n = atof(token);
+                                token = strtok(NULL,",");
+                                if (token != NULL){
+                                    *init_soc = atof(token);
+                                    token = strtok(NULL,","); 
+                                    printf("Current:%f \n", *current); 
+                                    printf("Init_cap:%f \n", *init_cap);
+                                    printf("Storage_time:%f\n", *storage_time);
+                                    printf("Temperature: %f\n", *temperature);
+                                    printf("Init_cycle_n: %f\n", *init_cycle_n);
+                                    printf("Init_soc: %f\n\n", *init_soc);
+                                    return;
+                                }
                             }
                         }
                     }
                 }
-            }
             
          }    
     }
-       
+    }  
     return;
             
 }
@@ -141,7 +146,9 @@ void output_check(  FILE *file_ptr,
                     float v_batt, 
                     float ccf, 
                     float soc)
-{
+{   
+    
+    fprintf(file_ptr,"%.3f,%.6f,%.6f,%.2f,%.2f \n", clock_time, current, v_batt, ccf, soc);
     printf("**********\n");
     printf("TIME: \t\t%.3f s\n", clock_time/1000);
     printf("Current: \t%.6f A\n", current);
