@@ -16,10 +16,10 @@ int main(){
     }
 
     // SIMULATION PARAMETERS
-    const float BASE_PERIOD_MS = 1;             // Minimum period, calls main lool. ALL PERIODS MUST BE DIVISIBLE BY THIS AMOUNT
+    const double BASE_PERIOD_MS = 1;             // Minimum period, calls main lool. ALL PERIODS MUST BE DIVISIBLE BY THIS AMOUNT
     //const float SIM_PERIOD_MS = 1;            // Simulation clock period in milliseconds
-    const float CHECK_PERIOD_MS = 1;         // Output checking period in milliseconds
-    const float MAX_SIM_TIME_MS = 15;          // Maximum simulation time
+    const double CHECK_PERIOD_MS = 5000;         // Output checking period in milliseconds
+    const double MAX_SIM_TIME_MS = 43200000;     // Maximum simulation time
 
     // Input variables
     float clock_period      = BASE_PERIOD_MS / 1000;
@@ -36,7 +36,7 @@ int main(){
     float soc               = 0;
 
     //Simulation variables
-    float clock_time        = 0;            // time variable updated each iteration
+    double clock_time        = 0;            // time variable updated each iteration
 
 
     for(clock_time = 0; clock_time <= MAX_SIM_TIME_MS; clock_time += BASE_PERIOD_MS){
@@ -111,16 +111,16 @@ void input_generation(  FILE *file_ptr,
                         init_cap_tmp = atof(token);
                         token = strtok(NULL,",");
                         if (token != NULL){
-                            storage_time_tmp = atof(token);
+                            init_soc_tmp = atof(token);
                             token = strtok(NULL,",");
                             if (token != NULL){
-                                temperature_tmp = atof(token);
+                                storage_time_tmp = atof(token);
                                 token = strtok(NULL,",");
                                 if (token != NULL){
-                                    init_cycle_n_tmp = atof(token);
+                                    temperature_tmp = atof(token);
                                     token = strtok(NULL,",");
                                     if (token != NULL){
-                                        init_soc_tmp = atof(token);
+                                        init_cycle_n_tmp = atof(token);
                                         token = strtok(NULL,","); 
                                         printf("Current:%f \n", *current); 
                                         printf("Init_cap:%f \n", *init_cap);
@@ -164,7 +164,7 @@ void output_check(  FILE *file_ptr,
                     float soc)
 {   
     
-    fprintf(file_ptr,"%.3f,%.6f,%.6f,%.2f,%.2f \n", clock_time, current, v_batt, ccf, soc);
+    fprintf(file_ptr,"%.0f,%.6f,%.6f,%.6f,%.6f \n", clock_time, current, v_batt, ccf, soc);
     printf("**********\n");
     printf("TIME: \t\t%.3f s\n", clock_time/1000);
     printf("Current: \t%.6f A\n", current);

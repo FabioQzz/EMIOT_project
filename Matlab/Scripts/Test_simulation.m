@@ -4,7 +4,7 @@ close all
 %%% Simulation script
 
 % Load input data from file
-input_data = readtable('input_data_3.txt');
+input_data = readtable('input_data_2.txt');
 input_control = readtable('input_control.txt');
 
 % Generate tables
@@ -35,6 +35,7 @@ plot(out_v_batt.Time, out_v_batt.Data)
 hold on;
 plot(out_soc.Time, out_soc.Data)
 hold on;
+title('Simulation of Matlab model')
 legend('Battery Voltage', 'State of Charge');
 %plot(out_ccf.Time, out_ccf.Data)
 %hold on;
