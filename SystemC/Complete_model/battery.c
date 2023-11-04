@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "battery.h"
-#include "src/battery_model.h"
+#include "./src/battery_model.h"
 
 int main(){
 
