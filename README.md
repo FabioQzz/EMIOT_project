@@ -58,6 +58,18 @@ SoC:            25.42 %
 - [ ] Porting to MCU
 
 ## Results
+
+Comparison between the simulation of the Matlab/Simulink model and the C code model:
+
+<img src="./Docs/img/Simulation_Simulink_1.png"  width="60%" height="30%">
+
+*Simulation results of Matlab/Simulink model.*
+
+<img src="./Docs/img/Simulation_C_Model_1.png"  width="60%" height="30%">
+
+*Simulation results of C code model.*
+
+
 Some relevant results can be seen in [results.md](./Docs/results.md)
 
 
