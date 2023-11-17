@@ -1,5 +1,4 @@
-# Table of Contents
-- [Table of Contents](#table-of-contents)
+## Table of Contents
 - [Introduction](#introduction)
 - [MATLAB / Simulink](#matlab--simulink)
   - [File Structure](#file-structure)
@@ -15,7 +14,7 @@ The MATLAB/Simulink model is based on the paper "[A Dynamic Lithium-ion battery 
 ## File Structure
 The `Blocks` folder contains the Simulink blocks.
 
-The `Scripts` folder contains the MATLAB scripts used to launche the MATLAB simulation and the text files containing the input data for the simulation.
+The `Scripts` folder contains the MATLAB scripts used to launch the MATLAB simulation and the text files containing the input data for the simulation.
 ```
 Matlab
 ├── Blocks
@@ -28,16 +27,16 @@ Matlab
 │   ├── data
 │   │   ├── input_data.txt
 │   │   ├── input_control.txt
-│   │   └── result.csv
+│   │   └── results.csv
 
 ```
 ### Blocks 
-Each block is named after the number of the equation found on the paper ([A Dynamic Lithium-ion battery model...](../Papers/A_dynamic_lithium-ion_battery_model_considering_the_effects_of_temperature_and_capacity_fading.pdf)) on which the model is based on.
+Each block is named after the number of the equation found on the paper ([A Dynamic Lithium-ion battery model...](../Papers/A_dynamic_lithium-ion_battery_model_considering_the_effects_of_temperature_and_capacity_fading.pdf)) on which the model is based.
 
 |File name| Description|
 |:---:|:---:|
 |`complete_model.slx`|Contains the complete model made up of all the other Simulink blocks|
-|`simulation.slx`|Contains the `complete_model` block and connects it to the input and output variables of MATLAB|
+|`simulation.slx`|Contains the `complete_model` block and connects it to the input and output MATLAB variables|
 
 ### Scripts
 |File name| Description|
@@ -50,7 +49,7 @@ Each block is named after the number of the equation found on the paper ([A Dyna
 
 *Complete Simulink model*
 
-The above picture shows the complete Simulink model. Four main blocks contain the additional blocks, each is named after the equation it implements.
+The above picture shows the complete Simulink model. Four main blocks contain the additional sub-blocks, each is named after the equation it implements.
 
 <img src="./img/Simulink_complete_model_detail.png"  width="100%">
 
@@ -64,7 +63,7 @@ $SoC_{tot} = SoC_{init} + \int C_{rate}$
 
 $N_{cycle} = N_{init} + \int |\frac{C_{rate}}{2}|$
 
-The idea behind the cycle number counter was con consider each full charge/discharge cycle as a cycle. In this way the counting was made easy by using the c-rate computed above.
+The idea behind the cycle number counter was con consider each full charge/discharge cycle as one cycle. The counting is made easy by using the c-rate computed above.
 
 ## Simulink - How to simulate
 - The model inputs are passed via the file `/data/input_data.txt`
