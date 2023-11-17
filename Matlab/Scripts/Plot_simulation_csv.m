@@ -2,7 +2,7 @@ clear all
 close all
 
 % Load input data from file
-input_data = readtable('results_1.csv');
+input_data = readtable('data/results_1.csv');
 time_ms = input_data(:, 1);
 current = input_data(:, 2);
 v_batt = input_data(:, 3);
