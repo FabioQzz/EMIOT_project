@@ -76,7 +76,8 @@ The simulator was implemented through a *for loop* which at each iteration:
 
 
 ## Start a Simulation 
-
-
+- The model inputs are passed via the file `/Complete_model/input.csv`
+- Some timing simulation parameters can be set by the user to tune the simulation according to the specific needs, by modifying them in the `/Complete_model/battery.c`
+- After compiling all the files composing the project the user can start the simulation by executing the `/Complete_model/battery.exe` file, which will write all the results in `/Complete_model/results.csv`.
 
 
